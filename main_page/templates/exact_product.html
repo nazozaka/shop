@@ -1,0 +1,13 @@
+Продукт: {{current_product.product_name}}<br>
+Категория: {{current_product.product_category}}<br>
+Цена: {{current_product.product_price}}<br>
+Описание: {{current_product.product_des}}<br>
+На складе: {{current_product.product_count}}<br>
+
+
+
+<form action="/add_to_cart/{{current_product.id}}" method="post">
+    {% csrf_token %}
+    <input type="number" min="1" value="1" name="pr_count">
+    <button>Добавить в корзину</button>
+</form>

@@ -1,0 +1,23 @@
+<a href="/products">Продукты</a><hr>
+
+{% if user.is_authenticated %}
+   <a href="/accounts/logout">Logout</a>
+{% else %}
+   <a href="/accounts/login">Login</a>
+{% endif %}
+<hr>
+
+<!-- Поиск -->
+<form action="/search" method="post">
+    {% csrf_token %}
+    <input type="text" name="search_product" >
+    <button>Поиск</button>
+
+</form>
+<hr>
+
+{% for category in all_categories %}
+<a href="/category/{{category.id}}">{{category}}</a>
+    <br>
+
+{% endfor %}
