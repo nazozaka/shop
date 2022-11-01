@@ -1,9 +1,17 @@
-<form method="post">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World</title>
+</head>
+<body>
+
+<form method="POST">
     {% csrf_token %}
     {{ form.as_p }}
-    <button>Вход</button>
+    <button>Войти</button>
 </form>
 
-
-
-
+</body>
+</html>

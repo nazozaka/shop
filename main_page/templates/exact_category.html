@@ -1,10 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
 
-</body>
-</html>
+{% extends 'index.html' %}
+
+{% block content %}
+<section>
+		<div class="container">
+			<div class="row">
+<!--------------------�仍�� 于�于仂亟舒 从舒�亠亞仂�亳亶 于�亠�-->
+                <div class="col-sm-3">
+					<div class="left-sidebar"><br>
+						<h2>Categories</h2>
+						<div class="panel-group category-products" id="accordian"><!--category-products-->
+							{% for category in all_categories %}
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title"><a href="/category/{{ category.id }}">{{ category.category_name }}</a></h4>
+								</div>
+							</div>
+							{% endfor %}
+						</div><!--/category-products-->
+					</div>
+				</div>
+
+<!--------------------�仍�� 于�于仂亟舒 �仂于舒�仂于 亳亰 仂仗�亠亟亠仍亠仆仆仂亶 从舒�亠亞仂�亳亳亳-->
+				<div class="col-sm-9 padding-right">
+					<div class="features_items"><br>
+						<h2 class="title text-center">{{ products_in_category.0.product_category }}</h2>
+
+<!----------------------------- 丼亠�亠亰 �亳从仍 仗仂亟弍亳�舒亠仄 �仂于舒�� ��仂�于亠��于��ﾑ�亠亶 从舒�亠亞仂�亳亳 --------------------->
+                        {% for product in category_products %}
+						<div class="col-sm-4">
+							<div class="product-image-wrapper">
+								<div class="single-products">
+									<div class="productinfo text-center">
+										<img src="/{{ product.product_image }}" alt="" />
+										<h2>{{ product.product_price }}</h2>
+										<p>{{ product.product_name }}</p>
+										<a href="/product/{{ product.product_name }}" class="btn btn-default add-to-cart">Learn more</a>
+									</div>
+								</div>
+							</div>
+						</div>
+                    {% endfor %}
+
+                    </div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+{% endblock content %}
+
+
+

@@ -15,7 +15,7 @@ def home_page(request):
 # Вывести все товары на экран и на front
 def get_all_products(request):
     all_products = models.Product.objects.all()# Получить всё
-    return render(request, 'index2.html', {'all_products': all_products})
+    return render(request, 'index.html', {'all_products': all_products})
 
 
 # Получение отдельного товара
